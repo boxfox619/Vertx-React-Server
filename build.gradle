@@ -23,9 +23,9 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
-    compile 'io.vertx:vertx-core:3.2.1'
-    compile 'io.vertx:vertx-web:3.2.1'
-    compile 'io.vertx:vertx-web-templ-handlebars:3.2.1'
+    compile 'io.vertx:vertx-core:3.5.0'
+    compile 'io.vertx:vertx-web:3.5.0'
+    compile 'io.vertx:vertx-web-templ-handlebars:3.5.0'
 }
 
 npm_install {
@@ -52,7 +52,7 @@ shadowJar {
     classifier = 'all'
     manifest {
         attributes 'Main-Class': 'io.vertx.core.Launcher'
-        attributes 'Main-Verticle': 'org.example.MainVerticle'
+        attributes 'Main-Verticle': 'com.boxfox.core.MainVerticle'
     }
     mergeServiceFiles {
         include 'META-INF/services/io.vertx.core.spi.VerticleFactory'

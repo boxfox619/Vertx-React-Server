@@ -1,4 +1,4 @@
-package org.example;
+package com.boxfox.core;
 
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Future;
