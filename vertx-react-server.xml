@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="vertx-react-server" default="all">
+  
+  
+  <property file="vertx-react-server.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.war"/>
+    <include name="*.swc"/>
+    <include name="*.zip"/>
+    <include name="*.egg"/>
+    <include name="*.ane"/>
+    <include name="*.jar"/>
+    <include name="*.ear"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.8" value="${jdk.home.1.8}/bin"/>
+  <path id="jdk.classpath.1.8">
+    <fileset dir="${jdk.home.1.8}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/ext/access-bridge-64.jar"/>
+      <include name="jre/lib/ext/cldrdata.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/jaccess.jar"/>
+      <include name="jre/lib/ext/jfxrt.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/nashorn.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunmscapi.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jfr.jar"/>
+      <include name="jre/lib/jfxswt.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.8}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.8}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.8"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.gradle:_com.fasterxml.jackson.core:jackson-annotations:2.9.0.classpath">
+    <pathelement location="C:/Users/user/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.9.0/7c10d545325e3a6e72e06381afe469fd40eb701/jackson-annotations-2.9.0.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.fasterxml.jackson.core:jackson-core:2.9.0.classpath">
+    <pathelement location="C:/Users/user/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.9.0/88e7c6220be3b3497b3074d3fc7754213289b987/jackson-core-2.9.0.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.fasterxml.jackson.core:jackson-databind:2.9.0.classpath">
+    <pathelement location="C:/Users/user/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.9.0/14fb5f088cc0b0dc90a73ba745bcade4961a3ee3/jackson-databind-2.9.0.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.github.jknack:handlebars:4.0.3.classpath">
+    <pathelement location="C:/Users/user/.gradle/caches/modules-2/files-2.1/com.github.jknack/handlebars/4.0.3/fb210d97610ec30fbe463dd0b0a12d2d6646984/handlebars-4.0.3.jar"/>
+  </path>
+  
+  <path id="library.gradle:_io.netty:netty-buffer:4.1.15.final.classpath">
+    <pathelement location="C:/Users/user/.gradle/caches/modules-2/files-2.1/io.netty/netty-buffer/4.1.15.Final/f7edf6488292b4de584ce16acc64f611d76fe4e7/netty-buffer-4.1.15.Final.jar"/>
+  </path>
+  
+  <path id="library.gradle:_io.netty:netty-codec-dns:4.1.15.final.classpath">
+    <pathelement location="C:/Users/user/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec-dns/4.1.15.Final/a9d47d0bdcb912b7f979808f96334bb2eefc2693/netty-codec-dns-4.1.15.Final.jar"/>
+  </path>
+  
+  <path id="library.gradle:_io.netty:netty-codec-http2:4.1.15.final.classpath">
+    <pathelement location="C:/Users/user/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec-http2/4.1.15.Final/4fd3b955b53ee80ef8d872dcdb53aea9f8f47a77/netty-codec-http2-4.1.15.Final.jar"/>
+  </path>
+  
+  <path id="library.gradle:_io.netty:netty-codec-http:4.1.15.final.classpath">
+    <pathelement location="C:/Users/user/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec-http/4.1.15.Final/c06dbf0f4119fdbb3db6ff880b38e835766455b2/netty-codec-http-4.1.15.Final.jar"/>
+  </path>
+  
+  <path id="library.gradle:_io.netty:netty-codec-socks:4.1.15.final.classpath">
+    <pathelement location="C:/Users/user/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec-socks/4.1.15.Final/dfb9755e77dc669eb17fef2e4a3491ddd35ed287/netty-codec-socks-4.1.15.Final.jar"/>
+  </path>
+  
+  <path id="library.gradle:_io.netty:netty-codec:4.1.15.final.classpath">
+    <pathelement location="C:/Users/user/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec/4.1.15.Final/15cef796196b4027911d5de8a3f0d333842896d1/netty-codec-4.1.15.Final.jar"/>
+  </path>
+  
+  <path id="library.gradle:_io.netty:netty-common:4.1.15.final.classpath">
+    <pathelement location="C:/Users/user/.gradle/caches/modules-2/files-2.1/io.netty/netty-common/4.1.15.Final/d6144d4a6e0395ad762d41409ed663cc7b227e83/netty-common-4.1.15.Final.jar"/>
+  </path>
+  
+  <path id="library.gradle:_io.netty:netty-handler-proxy:4.1.15.final.classpath">
+    <pathelement location="C:/Users/user/.gradle/caches/modules-2/files-2.1/io.netty/netty-handler-proxy/4.1.15.Final/540b802ce449b6dc03d27d1b726217a76b02b4ee/netty-handler-proxy-4.1.15.Final.jar"/>
+  </path>
+  
+  <path id="library.gradle:_io.netty:netty-handler:4.1.15.final.classpath">
+    <pathelement location="C:/Users/user/.gradle/caches/modules-2/files-2.1/io.netty/netty-handler/4.1.15.Final/43cec9cfc1e80ea281bc1cb060958b1bb543d60c/netty-handler-4.1.15.Final.jar"/>
+  </path>
+  
+  <path id="library.gradle:_io.netty:netty-resolver-dns:4.1.15.final.classpath">
+    <pathelement location="C:/Users/user/.gradle/caches/modules-2/files-2.1/io.netty/netty-resolver-dns/4.1.15.Final/62c6b9c3e962a909c8e1ff2ee336cf68419a27d2/netty-resolver-dns-4.1.15.Final.jar"/>
+  </path>
+  
+  <path id="library.gradle:_io.netty:netty-resolver:4.1.15.final.classpath">
+    <pathelement location="C:/Users/user/.gradle/caches/modules-2/files-2.1/io.netty/netty-resolver/4.1.15.Final/89565523e45aa99af2aa263900a75eb8836b3a47/netty-resolver-4.1.15.Final.jar"/>
+  </path>
+  
+  <path id="library.gradle:_io.netty:netty-transport:4.1.15.final.classpath">
+    <pathelement location="C:/Users/user/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport/4.1.15.Final/46e3f244f26422b3cfb5ffc5c2d9984b7725ed89/netty-transport-4.1.15.Final.jar"/>
+  </path>
+  
+  <path id="library.gradle:_io.vertx:vertx-auth-common:3.5.0.classpath">
+    <pathelement location="C:/Users/user/.gradle/caches/modules-2/files-2.1/io.vertx/vertx-auth-common/3.5.0/7dfb10174f75b1346d1686ebf2de0509e3d1adb7/vertx-auth-common-3.5.0.jar"/>
+  </path>
+  
+  <path id="library.gradle:_io.vertx:vertx-bridge-common:3.5.0.classpath">
+    <pathelement location="C:/Users/user/.gradle/caches/modules-2/files-2.1/io.vertx/vertx-bridge-common/3.5.0/59d6d9071e63fd8adaac03e35dc515f325f41077/vertx-bridge-common-3.5.0.jar"/>
+  </path>
+  
+  <path id="library.gradle:_io.vertx:vertx-core:3.5.0.classpath">
+    <pathelement location="C:/Users/user/.gradle/caches/modules-2/files-2.1/io.vertx/vertx-core/3.5.0/94a38b14ee7dd5bc6c5f7ce1c97b3cea7bd34f05/vertx-core-3.5.0.jar"/>
+  </path>
+  
+  <path id="library.gradle:_io.vertx:vertx-web-templ-handlebars:3.5.0.classpath">
+    <pathelement location="C:/Users/user/.gradle/caches/modules-2/files-2.1/io.vertx/vertx-web-templ-handlebars/3.5.0/8b44136218ec4828c1ad7079515c79a02d5ddd1f/vertx-web-templ-handlebars-3.5.0.jar"/>
+  </path>
+  
+  <path id="library.gradle:_io.vertx:vertx-web:3.5.0.classpath">
+    <pathelement location="C:/Users/user/.gradle/caches/modules-2/files-2.1/io.vertx/vertx-web/3.5.0/8e262f80f021ba72e66f4b4dbce554e2d4599986/vertx-web-3.5.0.jar"/>
+  </path>
+  
+  <path id="library.gradle:_org.antlr:antlr4-runtime:4.5.1-1.classpath">
+    <pathelement location="C:/Users/user/.gradle/caches/modules-2/files-2.1/org.antlr/antlr4-runtime/4.5.1-1/66144204f9d6d7d3f3f775622c2dd7e9bd511d97/antlr4-runtime-4.5.1-1.jar"/>
+  </path>
+  
+  <path id="library.gradle:_org.apache.commons:commons-lang3:3.4.classpath">
+    <pathelement location="C:/Users/user/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-lang3/3.4/5fe28b9518e58819180a43a850fbc0dd24b7c050/commons-lang3-3.4.jar"/>
+  </path>
+  
+  <path id="library.gradle:_org.mozilla:rhino:1.7r4.classpath">
+    <pathelement location="C:/Users/user/.gradle/caches/modules-2/files-2.1/org.mozilla/rhino/1.7R4/e982f2136574b9a423186fbaeaaa98dc3e5a5288/rhino-1.7R4.jar"/>
+  </path>
+  
+  <path id="library.gradle:_org.slf4j:slf4j-api:1.7.21.classpath">
+    <pathelement location="C:/Users/user/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.21/139535a69a4239db087de9bab0bee568bf8e0b70/slf4j-api-1.7.21.jar"/>
+  </path>
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <pathelement location="${javac2.home}/javac2.jar"/>
+    <pathelement location="${javac2.home}/jdom.jar"/>
+    <pathelement location="${javac2.home}/asm-all.jar"/>
+    <pathelement location="${javac2.home}/jgoodies-forms.jar"/>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  <import file="${basedir}/module_vertx-react-server.xml"/>
+  
+  <import file="${basedir}/.idea/modules/module_vertx-react-server_main.xml"/>
+  
+  <import file="${basedir}/.idea/modules/module_vertx-react-server_test.xml"/>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.vertx-react-server, clean.module.vertx-react-server_main, clean.module.vertx-react-server_test" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.vertx-react-server, compile.module.vertx-react-server_main, compile.module.vertx-react-server_test" description="build all modules"/>
+  
+  <target name="all" depends="build.modules" description="build all"/>
+</project>

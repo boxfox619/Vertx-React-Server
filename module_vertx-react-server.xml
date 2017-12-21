@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_vertx-react-server" default="compile.module.vertx-react-server">
+  <dirname property="module.vertx-react-server.basedir" file="${ant.file.module_vertx-react-server}"/>
+  
+  <property name="module.jdk.home.vertx-react-server" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.vertx-react-server" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.vertx-react-server" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.vertx-react-server" value="-encoding UTF-8 -source 1.8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="vertx-react-server.output.dir" value="${module.vertx-react-server.basedir}/classes/production/Vertx-React-Server"/>
+  <property name="vertx-react-server.testoutput.dir" value="${module.vertx-react-server.basedir}/classes/test/Vertx-React-Server"/>
+  
+  <path id="vertx-react-server.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="vertx-react-server.module.production.classpath">
+    <path refid="${module.jdk.classpath.vertx-react-server}"/>
+  </path>
+  
+  <path id="vertx-react-server.runtime.production.module.classpath">
+    <pathelement location="${vertx-react-server.output.dir}"/>
+  </path>
+  
+  <path id="vertx-react-server.module.classpath">
+    <path refid="${module.jdk.classpath.vertx-react-server}"/>
+    <pathelement location="${vertx-react-server.output.dir}"/>
+  </path>
+  
+  <path id="vertx-react-server.runtime.module.classpath">
+    <pathelement location="${vertx-react-server.testoutput.dir}"/>
+    <pathelement location="${vertx-react-server.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.vertx-react-server">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.vertx-react-server">
+    <patternset refid="excluded.from.module.vertx-react-server"/>
+  </patternset>
+  
+  
+  <target name="compile.module.vertx-react-server" depends="compile.module.vertx-react-server.production,compile.module.vertx-react-server.tests" description="Compile module Vertx-React-Server"/>
+  
+  <target name="compile.module.vertx-react-server.production" depends="register.custom.compilers" description="Compile module Vertx-React-Server; production classes"/>
+  
+  <target name="compile.module.vertx-react-server.tests" depends="register.custom.compilers,compile.module.vertx-react-server.production" description="compile module Vertx-React-Server; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.vertx-react-server" description="cleanup module">
+    <delete dir="${vertx-react-server.output.dir}"/>
+    <delete dir="${vertx-react-server.testoutput.dir}"/>
+  </target>
+</project>
