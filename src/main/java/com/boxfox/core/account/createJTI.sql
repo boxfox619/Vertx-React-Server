@@ -1,0 +1,1 @@
+INSERT INTO user_jti (uid) values(?)
