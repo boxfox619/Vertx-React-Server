@@ -1,0 +1,1 @@
+SELECT COUNT(uid) FROM user WHERE email=?

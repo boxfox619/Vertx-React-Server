@@ -31,6 +31,7 @@ dependencies {
     compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.6'
     compile group: 'commons-dbcp', name: 'commons-dbcp', version: '1.4'
     compile group: 'com.nimbusds', name: 'nimbus-jose-jwt', version: '5.1'
+    compile group: 'com.mashape.unirest', name: 'unirest-java', version: '1.4.9'
 }
 
 npm_install {

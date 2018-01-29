@@ -3,6 +3,8 @@ package com.boxfox.core.account;
 import com.boxfox.core.account.login.LoginDTO;
 import com.boxfox.core.account.login.LoginPerformer;
 import com.boxfox.core.account.register.RegistPerformer;
+import com.boxfox.core.account.sns.FacebookAuth;
+import com.boxfox.core.account.sns.SNSAuthDTO;
 import com.boxfox.support.data.Config;
 import com.boxfox.support.data.Database;
 import com.boxfox.support.vertx.middleware.JWTHandler;
@@ -36,10 +38,10 @@ public class AccountRouter {
     @RouteRegistration(uri = "/account/login", method = HttpMethod.POST)
     public void login(RoutingContext ctx, @Param String email, @Param String password) {
         LoginDTO result = loginDAO.login(email, password);
-        if(result != null) {
+        if (result != null) {
             ctx.response().setStatusCode(HttpResponseStatus.OK.code());
             ctx.addCookie(Cookie.cookie(JWTHandler.COOKIE_NAME, createJWT(result.getUID(), result.getJTI())));
-        }else{
+        } else {
             ctx.response().setStatusCode(HttpResponseStatus.NO_CONTENT.code());
         }
 
@@ -50,6 +52,17 @@ public class AccountRouter {
     public void register(RoutingContext ctx, @Param String email, @Param String password, @Param String nickname) {
         boolean result = registerDAO.register(email, password, nickname);
         ctx.response().setStatusCode(result ? HttpResponseStatus.OK.code() : HttpResponseStatus.PRECONDITION_FAILED.code());
+        ctx.response().end();
+    }
+
+    @RouteRegistration(uri = "/account/facebook", method = HttpMethod.POST)
+    public void facebook(RoutingContext ctx, @Param String token) {
+        SNSAuthDTO verification = FacebookAuth.verification(token);
+        ctx.response().setStatusCode(HttpResponseStatus.NOT_ACCEPTABLE.code());
+        if (verification != null) {
+            loginDAO.snsLogin(verification);
+            ctx.response().setStatusCode(HttpResponseStatus.OK.code());
+        }
         ctx.response().end();
     }
 
