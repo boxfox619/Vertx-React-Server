@@ -60,8 +60,13 @@ public class AccountRouter {
         SNSAuthDTO verification = FacebookAuth.verification(token);
         ctx.response().setStatusCode(HttpResponseStatus.NOT_ACCEPTABLE.code());
         if (verification != null) {
-            loginDAO.snsLogin(verification);
-            ctx.response().setStatusCode(HttpResponseStatus.OK.code());
+            LoginDTO result = loginDAO.snsLogin(verification);
+            if (result != null) {
+                ctx.response().setStatusCode(HttpResponseStatus.OK.code());
+                ctx.addCookie(Cookie.cookie(JWTHandler.COOKIE_NAME, createJWT(result.getUID(), result.getJTI())));
+            } else {
+                ctx.response().setStatusCode(HttpResponseStatus.NO_CONTENT.code());
+            }
         }
         ctx.response().end();
     }
