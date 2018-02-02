@@ -76,7 +76,7 @@ public class AccountRouter {
         try {
             JWSSigner signer = new MACSigner(Config.getDefaultInstance().getString("JWT-Secret"));
             JWTClaimsSet claimsSet = new JWTClaimsSet.Builder()
-                    .claim("iss", "ccshow.co.kr")
+                    .claim("iss", Config.getDefaultInstance().getString("iss"))//ccshow.co.kr
                     .claim("jti", jti)
                     .claim("uid", uid)
                     .claim("admin", false)
